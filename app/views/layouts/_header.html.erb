@@ -5,5 +5,17 @@
         <h2><i>studio schedule</i></h2>
       </a>
     </div>
+    <ul class = header-right>
+      <% if current_user %>
+        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+      <% else %>
+        <li>
+          <a href = /users/sign_up class = "signup-link">新規登録</a>
+        </li>
+        <li>
+          <a href = /users/sign_in class = "login-link">ログイン</a>
+        </li>
+      <% end %>
+    </ul>
   </div>
 </header>

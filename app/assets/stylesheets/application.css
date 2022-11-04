@@ -126,3 +126,16 @@ footer h2{
   margin:10px;
   border:solid 1px lightgrey;
 }
+
+.user-name{
+  color:aliceblue;
+  margin-top: 10px;
+  margin-right:20px;
+}
+
+.icon-image{
+  height:50px;
+  width:50px;
+  border-radius:50%;
+  margin-right: 10px;
+}

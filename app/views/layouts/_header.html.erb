@@ -7,7 +7,19 @@
     </div>
     <ul class = header-right>
       <% if current_user %>
-        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+        <li>
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+        </li>
+        <li class = "user-name">
+          <%= current_user.name%>
+        </li>
+        <li>
+          <% if current_user.image.nil? %>
+            <img class = "icon-image" alt = "デフォルトアイコン" src = "https://presite-potepancamp-rails-02.herokuapp.com/assets/default_icon-9263fc59c414b7228d256fc178dcb22183561357950a68f5ad086ba7ee054974.jpg">
+          <% else %>
+            <img class = "icon-image" alt = "アイコン" src = "<%= "/user_images/#{current_user.image}" %>">
+          <% end %>
+        </li>
       <% else %>
         <li>
           <a href = /users/sign_up class = "signup-link">新規登録</a>

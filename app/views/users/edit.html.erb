@@ -1,0 +1,26 @@
+<div class = "profile-form">
+  <div class = "update-content">
+    <h2>プロフィール編集</h2>
+  </div>
+  <%= form_tag("/users/#{@user.id}/update", {multipart: true}) do %>
+
+    <div class = "update-content">
+      <p>アイコン画像<p>
+      <input name = "image" type = "file">
+    </div>
+
+    <div class = "update-content">
+      <p>バンド名</p>
+      <input class = "update-input" name = "name" value = <%= @user.name %>>
+    </div>
+
+    <div class = "update-content">
+      <p>メンバー</p>
+      <textarea name = "member"><%= @user.member %></textarea>
+    </div>
+
+    <input  type = "submit" value = "更新" class = "update-btn">
+  <% end %>
+
+
+</div>

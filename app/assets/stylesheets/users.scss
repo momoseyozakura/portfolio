@@ -1,3 +1,49 @@
-// Place all the styles related to the users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+.profile-form{
+  max-width: 600px;
+  border:solid 1px lightgrey;
+  text-align: center;
+  padding:20px 0;
+  margin:70px auto;
+}
+
+.update-content{
+  border-bottom:solid 1px lightgrey ;
+  margin:0 20px;
+  text-align: left;
+}
+
+.update-content h2{
+  font-weight: normal;
+  display:flex;
+}
+
+.update-content p{
+  display:flex;
+}
+
+.update-input{
+  width:90%;
+  height:30px;
+  margin:10px 0;
+  border:solid 1px gray;
+  display:flex;
+}
+
+.update-content textarea{
+  display:flex;
+  width:90%;
+  height:90px;
+  margin:10px 0;
+}
+
+.update-btn{
+  text-decoration: none;
+  background-color:dodgerblue;
+  border: none;
+  color:white;
+  padding:10px 0;
+  border-radius: 5px;
+  margin:20px 0;
+  width:90%;
+}
+

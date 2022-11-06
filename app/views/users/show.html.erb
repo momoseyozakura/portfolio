@@ -1,0 +1,26 @@
+<div class = profile-container>
+  <div class = "profile-form">
+    <div class = "update-content">
+      <h2>プロフィール</h2>
+    </div>
+
+      <div class = "update-content">
+        <p>アイコン画像<p>
+        <% if current_user.image.nil? %>
+          <img class = "profile-image" alt = "デフォルトアイコン" src = "https://presite-potepancamp-rails-02.herokuapp.com/assets/default_icon-9263fc59c414b7228d256fc178dcb22183561357950a68f5ad086ba7ee054974.jpg">
+        <% else %>
+          <img class = "profile-image" alt = "アイコン" src = "<%= "/user_images/#{current_user.image}" %>">
+        <% end %>
+      </div>
+
+      <div class = "update-content">
+        <p>バンド名</p>
+        <%= @user.name %>
+      </div>
+
+      <div class = "update-content end">
+        <p>メンバー</p>
+        <%= @user.member %>
+      </div>
+  </div>
+</div>

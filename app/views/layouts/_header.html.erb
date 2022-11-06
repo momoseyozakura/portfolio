@@ -15,6 +15,7 @@
           </span>
           <nav class = "nav">
             <ul class = "nav_menu_ul">
+              <li class = "nav_menu_li"><a href = <%= "/users/#{current_user.id}/show"%> >プロフィール</a></li>
               <li class = "nav_menu_li"><a href = <%= "/users/#{current_user.id}/edit"%> >プロフィール編集</a></li>
               <li class = "nav_menu_li"><a href = "/users/sign_out">ログアウト</a></li>
             </ul>

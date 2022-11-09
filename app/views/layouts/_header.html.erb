@@ -17,7 +17,7 @@
             <ul class = "nav_menu_ul">
               <li class = "nav_menu_li"><a href = <%= "/users/#{current_user.id}/show"%> >プロフィール</a></li>
               <li class = "nav_menu_li"><a href = <%= "/users/#{current_user.id}/edit"%> >プロフィール編集</a></li>
-              <li class = "nav_menu_li"><a href = "/users/sign_out">ログアウト</a></li>
+              <li class = "nav_menu_li"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
             </ul>
           </nav>
         </li>

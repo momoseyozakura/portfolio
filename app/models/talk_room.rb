@@ -1,0 +1,4 @@
+class TalkRoom < ApplicationRecord
+  has_many :room_users, dependent: :destroy
+  has_many :messages, dependent: :destroy
+end

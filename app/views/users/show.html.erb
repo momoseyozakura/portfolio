@@ -6,10 +6,10 @@
 
       <div class = "update-content">
         <p>アイコン画像<p>
-        <% if current_user.image.nil? %>
+        <% if @user.image.nil? %>
           <img class = "profile-image" alt = "デフォルトアイコン" src = "https://presite-potepancamp-rails-02.herokuapp.com/assets/default_icon-9263fc59c414b7228d256fc178dcb22183561357950a68f5ad086ba7ee054974.jpg">
         <% else %>
-          <img class = "profile-image" alt = "アイコン" src = "<%= "/user_images/#{current_user.image}" %>">
+          <img class = "profile-image" alt = "アイコン" src = "<%= "/user_images/#{@user.image}" %>">
         <% end %>
       </div>
 
@@ -21,6 +21,21 @@
       <div class = "update-content end">
         <p>メンバー</p>
         <%= @user.member %>
+      </div>
+
+      <div class = "update-content">
+        <% unless @user.id == current_user.id %>
+          <% if @have_room == true %>
+            <%= link_to 'ダイレクトメッセージ', talk_room_path(@room_id)%>
+          <% else %>
+            <%= form_with model: @room, local: true do |f| %>
+              <%= fields_for @room_user do |r| %>
+                <%= r.hidden_field :user_id, value: @user.id %>
+              <% end %>
+              <%= f.submit "メッセージを送る", class: "btn" %>
+            <% end %>
+          <% end %>
+        <% end %>
       </div>
   </div>
 </div>

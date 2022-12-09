@@ -1,0 +1,16 @@
+<div class = "profile-form">
+  <div class = "update-content">
+    <h2>スタジオ抽選</h2>
+  </div>
+  <div class = "update-content">
+    <p>日時<p>
+    <%= form_with(model: @user, url:"/users/#{@user.id}/add", local: true) do |form| %>
+      <%= form.collection_check_boxes(:studio_ids, Studio.all, :id, :name, include_hidden: false) do |studio| %>
+        <div>
+          <%= studio.label { studio.check_box + studio.text } %>
+        </div>
+      <% end %>
+      <%= form.submit("応募する") %>
+    <% end %>
+  </div>
+</div>

@@ -41,4 +41,31 @@ class UsersController < ApplicationController
       render :edit
     end
   end
+
+  def entry
+    @user = User.find(params[:id])
+  end
+
+  def add
+    @user = User.find(params[:id])
+    if @user.update(user_params)
+      user_params[:studio_ids].each do | user |
+         studios = @user.studios.pluck(:studio_id)
+         unless studios.include?(user.to_i)
+           studio = StudioUser.new(studio_id: user)
+           studio.user_id = @user.id
+           studio.save
+         end
+       end
+         redirect_to studios_path
+   else
+      render 'entry'
+   end
+    
+  end
+
+  private
+  def user_params
+    params.require(:user).permit(studio_ids: [])
+  end
 end

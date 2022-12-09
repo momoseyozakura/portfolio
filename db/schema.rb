@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_11_09_114626) do
+ActiveRecord::Schema.define(version: 2022_11_22_111052) do
 
   create_table "messages", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -29,6 +29,21 @@ ActiveRecord::Schema.define(version: 2022_11_09_114626) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["talk_room_id"], name: "index_room_users_on_talk_room_id"
     t.index ["user_id"], name: "index_room_users_on_user_id"
+  end
+
+  create_table "studio_users", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "studio_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["studio_id"], name: "index_studio_users_on_studio_id"
+    t.index ["user_id"], name: "index_studio_users_on_user_id"
+  end
+
+  create_table "studios", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "name"
   end
 
   create_table "talk_rooms", force: :cascade do |t|
@@ -55,4 +70,6 @@ ActiveRecord::Schema.define(version: 2022_11_09_114626) do
   add_foreign_key "messages", "users"
   add_foreign_key "room_users", "talk_rooms"
   add_foreign_key "room_users", "users"
+  add_foreign_key "studio_users", "studios"
+  add_foreign_key "studio_users", "users"
 end

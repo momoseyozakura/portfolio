@@ -1,0 +1,58 @@
+<table>
+  <tr>
+    <th></th>
+    <th>月</th>
+    <th>火</th>
+    <th>水</th>
+    <th>木</th>
+    <th>金</th>
+  </tr>
+  <tr>
+    <th>9:20-11:00</th>
+    <% @studios[0..4].each do |studio| %>
+      <td><%= studio.id %></td>
+    <% end %>
+  </tr>
+  <tr>
+    <th>11:10-12:50</th>
+    <% @studios[5..9].each do |studio| %>
+      <td><%= studio.id %></td>
+    <% end %>
+  </tr>
+  <tr>
+    <th>昼休憩</th>
+    <% @studios[10..14].each do |studio| %>
+      <td><%= studio.id %></td>
+    <% end %>
+  </tr>
+  <tr>
+    <th>13:40-15:20</th>
+    <% @studios[15..19].each do |studio| %>
+      <td><%= studio.id %></td>
+    <% end %>
+  </tr>
+  <tr>
+    <th>15:30-17:10</th>
+    <% @studios[20..24].each do |studio| %>
+      <td><%= studio.id %></td>
+    <% end %>
+  </tr>
+  <tr>
+    <th>17:20-19:00</th>
+    <% @studios[25..29].each do |studio| %>
+      <td><%= studio.id %></td>
+    <% end %>
+  </tr>
+  <tr>
+    <th>19:00-20:00</th>
+    <% @studios[30..34].each do |studio| %>
+      <td><%= studio.id %></td>
+    <% end %>
+  </tr>
+  <tr>
+    <th>20:00-21:00</th>
+    <% @studios[35..39].each do |studio| %>
+      <td><%= studio.id %></td>
+    <% end %>
+  </tr>
+</table>

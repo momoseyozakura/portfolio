@@ -74,5 +74,5 @@
 
 <% if current_user.admin == true %>
   <div class = "lottery-btn">抽選</div>
-  <div class = "reset-btn">リセット</div>
+  <%= link_to "リセット", studios_destroy_path, class: "reset-btn" %>
 <% end %>

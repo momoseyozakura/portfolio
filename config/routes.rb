@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   post "users/:id/update" => "users#update"
   patch "users/:id/add" => "users#add"
   get "studios" => "studios#index"
+  get "studios/destroy" => "studios#destroy"
+  delete "studios/destroy" => "studios#destroy"
   resources :messages, only: [:create]
   resources :talk_rooms, only: [:create, :index, :show]
 end

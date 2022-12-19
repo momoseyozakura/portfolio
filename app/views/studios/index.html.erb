@@ -1,58 +1,78 @@
 <table>
   <tr>
     <th></th>
-    <th>月</th>
-    <th>火</th>
-    <th>水</th>
-    <th>木</th>
-    <th>金</th>
-  </tr>
-  <tr>
     <th>9:20-11:00</th>
-    <% @studios[0..4].each do |studio| %>
-      <td><%= studio.id %></td>
-    <% end %>
-  </tr>
-  <tr>
     <th>11:10-12:50</th>
-    <% @studios[5..9].each do |studio| %>
-      <td><%= studio.id %></td>
-    <% end %>
-  </tr>
-  <tr>
     <th>昼休憩</th>
-    <% @studios[10..14].each do |studio| %>
-      <td><%= studio.id %></td>
-    <% end %>
-  </tr>
-  <tr>
     <th>13:40-15:20</th>
-    <% @studios[15..19].each do |studio| %>
-      <td><%= studio.id %></td>
-    <% end %>
-  </tr>
-  <tr>
     <th>15:30-17:10</th>
-    <% @studios[20..24].each do |studio| %>
-      <td><%= studio.id %></td>
-    <% end %>
-  </tr>
-  <tr>
     <th>17:20-19:00</th>
-    <% @studios[25..29].each do |studio| %>
-      <td><%= studio.id %></td>
-    <% end %>
-  </tr>
-  <tr>
     <th>19:00-20:00</th>
-    <% @studios[30..34].each do |studio| %>
-      <td><%= studio.id %></td>
+    <th>20:00-21:00</th>
+  </tr>
+  <tr>
+    <th>月</th>
+    <% @studios[0..7].each do |studio| %>
+      <td>
+        <% studio.studio_users.each do |user| %>
+          <div class = "band">
+            <a href = <%= "/users/#{user.user.id}/show"%> class = "band-name"><%= user.user.name %></a>
+          </div>
+        <% end %>
+      </td>
     <% end %>
   </tr>
   <tr>
-    <th>20:00-21:00</th>
-    <% @studios[35..39].each do |studio| %>
-      <td><%= studio.id %></td>
+    <th>火</th>
+    <% @studios[8..15].each do |studio| %>
+      <td>
+        <% studio.studio_users.each do |user| %>
+          <div class = "band">
+            <a href = <%= "/users/#{user.user.id}/show"%> class = "band-name"><%= user.user.name %></a>
+          </div>
+        <% end %>
+      </td>
+    <% end %>
+  </tr>
+  <tr>
+    <th>水</th>
+    <% @studios[16..23].each do |studio| %>
+      <td>
+        <% studio.studio_users.each do |user| %>
+          <div class = "band">
+            <a href = <%= "/users/#{user.user.id}/show"%> class = "band-name"><%= user.user.name %></a>
+          </div>
+        <% end %>
+      </td>
+    <% end %>
+  </tr>
+  <tr>
+    <th>木</th>
+    <% @studios[24..31].each do |studio| %>
+      <td>
+        <% studio.studio_users.each do |user| %>
+          <div class = "band">
+            <a href = <%= "/users/#{user.user.id}/show"%> class = "band-name"><%= user.user.name %></a>
+          </div>
+        <% end %>
+      </td>
+    <% end %>
+  </tr>
+  <tr>
+    <th>金</th>
+    <% @studios[32..39].each do |studio| %>
+      <td>
+        <% studio.studio_users.each do |user| %>
+          <div class = "band">
+            <a href = <%= "/users/#{user.user.id}/show"%> class = "band-name"><%= user.user.name %></a>
+          </div>
+        <% end %>
+      </td>
     <% end %>
   </tr>
 </table>
+
+<% if current_user.admin == true %>
+  <div class = "lottery-btn">抽選</div>
+  <div class = "reset-btn">リセット</div>
+<% end %>

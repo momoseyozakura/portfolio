@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_11_22_111052) do
+ActiveRecord::Schema.define(version: 2022_12_15_082320) do
 
   create_table "messages", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -62,6 +62,7 @@ ActiveRecord::Schema.define(version: 2022_11_22_111052) do
     t.string "name"
     t.string "image"
     t.text "member"
+    t.boolean "admin", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

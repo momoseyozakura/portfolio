@@ -72,3 +72,51 @@
   margin:10px;
   border:solid 1px lightgrey;
 }
+
+table{
+  width:95%;
+
+}
+th{
+  width:1%;
+}
+td{
+  width:10%;
+}
+
+.band{
+  margin:5px;
+}
+.band-name{
+  background-color: silver;
+  color:white;
+  padding:5px;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.lottery-btn{
+  text-align: center;
+  background-color:dodgerblue;
+  border: none;
+  color:white;
+  padding:10px;
+  border-radius: 5px;
+  margin:20px;
+  width:25%;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.reset-btn{
+  text-align: center;
+  background-color:gray;
+  border: none;
+  color:white;
+  padding:10px;
+  border-radius: 5px;
+  margin:20px;
+  width:25%;
+  display:inline-block;
+  cursor: pointer;
+}

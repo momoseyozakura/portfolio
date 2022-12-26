@@ -1,0 +1,58 @@
+<table>
+  <tr>
+    <th></th>
+    <th>9:20-11:00</th>
+    <th>11:10-12:50</th>
+    <th>昼休憩</th>
+    <th>13:40-15:20</th>
+    <th>15:30-17:10</th>
+    <th>17:20-19:00</th>
+    <th>19:00-20:00</th>
+    <th>20:00-21:00</th>
+  </tr>
+  <tr>
+    <th>月</th>
+    <% @studios[0..7].each do |studio| %>
+      <td>
+        
+      </td>
+    <% end %>
+  </tr>
+  <tr>
+    <th>火</th>
+    <% @studios[8..15].each do |studio| %>
+      <td>
+        
+      </td>
+    <% end %>
+  </tr>
+  <tr>
+    <th>水</th>
+    <% @studios[16..23].each do |studio| %>
+      <td>
+        
+      </td>
+    <% end %>
+  </tr>
+  <tr>
+    <th>木</th>
+    <% @studios[24..31].each do |studio| %>
+      <td>
+       
+      </td>
+    <% end %>
+  </tr>
+  <tr>
+    <th>金</th>
+    <% @studios[32..39].each do |studio| %>
+      <td>
+        
+      </td>
+    <% end %>
+  </tr>
+</table>
+
+<% if current_user.admin == true %>
+  <div class = "lottery-btn">抽選</div>
+  <%= link_to "リセット", studios_destroy_path, class: "reset-btn" %>
+<% end %>

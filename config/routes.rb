@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   get "studios/election" => "studios#election"
   get "studios/destroy" => "studios#destroy"
   delete "studios/destroy" => "studios#destroy"
+  get "studios/open" => "studios#open"
+  get "studios/close" => "studios#close"
   resources :messages, only: [:create]
   resources :talk_rooms, only: [:create, :index, :show]
 end

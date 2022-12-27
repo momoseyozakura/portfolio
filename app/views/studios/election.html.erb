@@ -74,7 +74,8 @@
 
 <% if current_user.admin == true %>
   <div class = btn-container>
-    <div class = "lottery-btn">抽選</div>
+    <%= link_to "公表", studios_open_path, class: "lottery-btn" %>
+    <%= link_to "非公表", studios_close_path, class: "lottery-btn close" %>
     <%= link_to "リセット", studios_destroy_path, class: "reset-btn" %>
   </div>
 <% end %>

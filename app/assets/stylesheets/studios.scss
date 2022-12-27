@@ -2,8 +2,67 @@ table {
   border-collapse: collapse;
   border: solid 1px #888;
   margin:20px;
+  width:95%;
 }
 th, td {
   padding: 5px 15px;
   border: solid 1px #888;
+}
+
+th{
+  width:1%;
+}
+td{
+  width:10%;
+}
+
+.band{
+  margin:5px;
+}
+.band-name{
+  background-color: silver;
+  color:white;
+  padding:5px;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.lottery-btn{
+  text-align: center;
+  background-color:dodgerblue;
+  border: none;
+  color:white;
+  padding:10px;
+  border-radius: 5px;
+  margin:20px;
+  width:25%;
+  display: inline-block;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.close{
+  background-color: gray;
+}
+
+.reset-btn{
+  text-decoration: none;
+  text-align: center;
+  background-color:black;
+  border: none;
+  color:white;
+  padding:10px;
+  border-radius: 5px;
+  margin:20px;
+  width:25%;
+  display:inline-block;
+  cursor: pointer;
+}
+
+.election{
+  background-color:#FF5192 ;
+}
+
+.btn-container{
+  text-align: center;
 }

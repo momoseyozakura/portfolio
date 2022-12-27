@@ -14,7 +14,11 @@
     <th>月</th>
     <% @studios[0..7].each do |studio| %>
       <td>
-        
+        <% studio.studio_users.sort_by{|id| id}.each_with_index do |user, i| %>
+          <div class = "band">
+            <a href = <%= "/users/#{user.user.id}/show"%> class = "band-name <%= "election" if i == 0 %>"><%= user.user.name %></a>
+          </div>
+        <% end %>
       </td>
     <% end %>
   </tr>
@@ -22,7 +26,11 @@
     <th>火</th>
     <% @studios[8..15].each do |studio| %>
       <td>
-        
+        <% studio.studio_users.sort_by{|id| id}.each_with_index do |user, i| %>
+          <div class = "band">
+            <a href = <%= "/users/#{user.user.id}/show"%> class = "band-name <%= "election" if i == 0 %>"><%= user.user.name %></a>
+          </div>
+        <% end %>
       </td>
     <% end %>
   </tr>
@@ -30,7 +38,11 @@
     <th>水</th>
     <% @studios[16..23].each do |studio| %>
       <td>
-        
+        <% studio.studio_users.sort_by{|id| id}.each_with_index do |user, i| %>
+          <div class = "band">
+            <a href = <%= "/users/#{user.user.id}/show"%> class = "band-name <%= "election" if i == 0 %>"><%= user.user.name %></a>
+          </div>
+        <% end %>
       </td>
     <% end %>
   </tr>
@@ -38,7 +50,11 @@
     <th>木</th>
     <% @studios[24..31].each do |studio| %>
       <td>
-       
+        <% studio.studio_users.sort_by{|id| id}.each_with_index do |user, i| %>
+          <div class = "band">
+            <a href = <%= "/users/#{user.user.id}/show"%> class = "band-name <%= "election" if i == 0 %>"><%= user.user.name %></a>
+          </div>
+        <% end %>
       </td>
     <% end %>
   </tr>
@@ -46,13 +62,19 @@
     <th>金</th>
     <% @studios[32..39].each do |studio| %>
       <td>
-        
+        <% studio.studio_users.sort_by{|id| id}.each_with_index do |user, i| %>
+          <div class = "band">
+            <a href = <%= "/users/#{user.user.id}/show"%> class = "band-name <%= "election" if i == 0 %>"><%= user.user.name %></a>
+          </div>
+        <% end %>
       </td>
     <% end %>
   </tr>
 </table>
 
 <% if current_user.admin == true %>
-  <div class = "lottery-btn">抽選</div>
-  <%= link_to "リセット", studios_destroy_path, class: "reset-btn" %>
+  <div class = btn-container>
+    <div class = "lottery-btn">抽選</div>
+    <%= link_to "リセット", studios_destroy_path, class: "reset-btn" %>
+  </div>
 <% end %>

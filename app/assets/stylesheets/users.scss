@@ -122,3 +122,18 @@ td{
   cursor: pointer;
 }
 
+.election{
+  background-color:#FF5192 ;
+}
+.election-container{
+  position:relative;
+}
+.wait{
+  position:absolute;
+  top: 50%;
+  left: 42%;
+  z-index: -1;
+}
+.btn-container{
+  text-align: center;
+}

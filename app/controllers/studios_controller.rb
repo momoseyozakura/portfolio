@@ -19,7 +19,7 @@ class StudiosController < ApplicationController
 
   def destroy
     StudioUser.destroy_all
-    redirect_to studios_path
+    redirect_to studios_election_path
   end
   
 end

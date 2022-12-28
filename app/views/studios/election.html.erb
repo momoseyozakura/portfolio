@@ -1,3 +1,4 @@
+<div class = "notice"><%= flash[:notice] %></div>
 <table>
   <tr>
     <th></th>
@@ -74,8 +75,8 @@
 
 <% if current_user.admin == true %>
   <div class = btn-container>
-    <%= link_to "公表", studios_open_path, class: "lottery-btn" %>
-    <%= link_to "非公表", studios_close_path, class: "lottery-btn close" %>
+    <%= link_to "公開", studios_open_path, class: "lottery-btn" %>
+    <%= link_to "非公開", studios_close_path, class: "lottery-btn close" %>
     <%= link_to "リセット", studios_destroy_path, class: "reset-btn", data: {confirm:"リセットしますか？"} %>
   </div>
 <% end %>

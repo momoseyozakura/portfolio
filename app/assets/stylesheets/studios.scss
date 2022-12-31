@@ -18,13 +18,20 @@ td{
 
 .band{
   margin:5px;
+  width:100px;
 }
 .band-name{
   background-color: silver;
-  color:white;
+  font-size:12px ;
   padding:5px;
-  text-decoration: none;
   border-radius: 5px;
+  white-space: nowrap;
+  overflow:hidden;
+}
+
+.band-name a{
+  text-decoration: none;
+  color:white;
 }
 
 .lottery-btn{

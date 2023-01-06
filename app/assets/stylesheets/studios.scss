@@ -1,16 +1,18 @@
 table {
+  writing-mode: vertical-lr;
   border-collapse: collapse;
   border: solid 1px #888;
   margin:20px;
   width:95%;
 }
 th, td {
+  writing-mode: horizontal-tb;
   padding: 5px 15px;
   border: solid 1px #888;
 }
 
 th{
-  width:1%;
+  width:5%;
 }
 td{
   width:10%;
@@ -18,7 +20,7 @@ td{
 
 .band{
   margin:5px;
-  width:100px;
+  width:100%;
 }
 .band-name{
   background-color: silver;
@@ -75,7 +77,4 @@ td{
 }
 .notice{
   background-color: yellow;
-}
-.container{
-  height:650px;
 }

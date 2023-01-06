@@ -17,8 +17,10 @@
             <ul class = "nav_menu_ul">
               <li class = "nav_menu_li"><a href = <%= "/users/#{current_user.id}/show"%> >プロフィール</a></li>
               <li class = "nav_menu_li"><a href = <%= "/users/#{current_user.id}/edit"%> >プロフィール編集</a></li>
-              <li class = "nav_menu_li"><a href = <%= "/users/#{current_user.id}/entry"%> >スタジオ抽選</a></li>
-              <li class = "nav_menu_li"><a href = <%= "/studios"%> >応募状況</a></li>
+              <% if current_user.open == false %>
+                <li class = "nav_menu_li"><a href = <%= "/users/#{current_user.id}/entry"%> >スタジオ抽選</a></li>
+                <li class = "nav_menu_li"><a href = <%= "/studios"%> >応募状況</a></li>
+              <% end %>
               <% if current_user.admin == true or current_user.open == true %>
                 <li class = "nav_menu_li"><a href = <%= "/studios/election"%> >抽選結果</a></li>
               <% end %>

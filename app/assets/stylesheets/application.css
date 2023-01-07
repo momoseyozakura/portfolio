@@ -200,3 +200,26 @@ footer h2{
   text-decoration: none;
   color:white;
 }
+
+.menu{
+  list-style: none;
+  margin:10px;
+  display: inline-block;
+}
+
+.menu a{
+  text-decoration: none;
+  color: white;
+}
+
+@media screen and (max-width:1080px){
+  .menu{
+    display:none;
+  }
+}
+
+@media screen and (min-width:1081px){
+  .hamburger-menu{
+    display: none;
+  }
+}

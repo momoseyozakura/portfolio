@@ -4,10 +4,22 @@
       <a href = "/" class = logo>
         <h2><i>studio schedule</i></h2>
       </a>
+      <ul>
+        <li class = "menu"><a href = <%= "/users/#{current_user.id}/show"%> >プロフィール</a></li>
+        <li class = "menu"><a href = <%= "/users/#{current_user.id}/edit"%> >プロフィール編集</a></li>
+        <% if current_user.open == false %>
+          <li class = "menu"><a href = <%= "/users/#{current_user.id}/entry"%> >スタジオ抽選</a></li>
+          <li class = "menu"><a href = <%= "/studios"%> >応募状況</a></li>
+        <% end %>
+        <% if current_user.admin == true or current_user.open == true %>
+          <li class = "menu"><a href = <%= "/studios/election"%> >抽選結果</a></li>
+        <% end %>
+        <li class = "menu"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+      </ul>
     </div>
     <ul class = header-right>
       <% if current_user %>
-        <li>
+        <li class = "hamburger-menu">
           <span class = "nav_toggle">
             <i></i>
             <i></i>

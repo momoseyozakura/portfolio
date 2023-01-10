@@ -1,0 +1,14 @@
+<h2 class = "title">~メッセージ一覧~</h2>
+<div class = "dm-container">
+  <% @talk_room.each do |room| %>
+    <div class = "message-box">
+      <%= link_to talk_room_path(room) do %>
+        <div class = "dm">
+          <div class = "image"><%= user_image(room) %></div>
+          <h3 class = "name"><%= opponent_user(room) %></h3>
+          <p><%= most_new_message_preview(room) %></p>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>

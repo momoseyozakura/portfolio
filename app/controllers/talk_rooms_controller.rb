@@ -1,6 +1,10 @@
 class TalkRoomsController < ApplicationController
   before_action :authenticate_user!
 
+  def index
+    @talk_room = current_user.talk_rooms
+  end
+
   def create
     @room = TalkRoom.create
     @join_current_user = RoomUser.create(user_id: current_user.id, talk_room_id: @room.id)

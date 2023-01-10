@@ -40,3 +40,22 @@
 .posts{
   margin:30px;
 }
+
+.message-box{
+  margin:10px;
+  border-bottom:solid 1px lightgrey ;
+}
+
+.dm{
+  display:inline-block;
+  text-decoration: none;
+  color:black;
+}
+
+.image{
+  float:left;
+}
+
+.name{
+  white-space: nowrap
+}

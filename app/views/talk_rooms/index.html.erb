@@ -6,7 +6,8 @@
         <div class = "dm">
           <div class = "image"><%= user_image(room) %></div>
           <h3 class = "name"><%= opponent_user(room) %></h3>
-          <p><%= most_new_message_preview(room) %></p>
+          <div><%= most_new_message_preview(room) %></div>
+          <div><%= message_preview_time(room) %></div>
         </div>
       <% end %>
     </div>

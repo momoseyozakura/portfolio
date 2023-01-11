@@ -16,7 +16,7 @@
               <% end %>
             </div>
             <div class = "chat-name-bar"><%= m.user.name %></div>
-            <div class = "chat-name-bar"><%= m.created_at.strftime("%Y-%m-%d %H:%M") %></div><br>
+            <div class = "chat-name-bar"><%= m.created_at.to_s(:datetime_jp) %></div><br>
             <%= m.body %>
            </div>
          </div>

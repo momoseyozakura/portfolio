@@ -26,7 +26,7 @@
       <div class = "update-content">
         <% unless @user.id == current_user.id %>
           <% if @have_room == true %>
-            <%= link_to 'ダイレクトメッセージ', talk_room_path(@room_id)%>
+            <%= link_to 'DM', talk_room_path(@room_id)%>
           <% else %>
             <%= form_with model: @room, local: true do |f| %>
               <%= fields_for @room_user do |r| %>

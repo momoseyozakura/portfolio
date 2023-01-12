@@ -1,10 +1,10 @@
 class StudiosController < ApplicationController
   def index
-    @studios = Studio.all
+    @studios = Studio.all.includes(studio_users: :user)
   end
 
   def election
-    @studios = Studio.all
+    @studios = Studio.all.includes(studio_users: :user)
   end
 
   def open

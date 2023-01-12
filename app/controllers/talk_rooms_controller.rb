@@ -15,7 +15,7 @@ class TalkRoomsController < ApplicationController
   def show
     @room = TalkRoom.find(params[:id])
    if RoomUser.where(user_id: current_user.id, talk_room_id: @room.id).present?
-     @messages = @room.messages
+     @messages = @room.messages.includes(:user)
      @message = Message.new
      @room_users = @room.room_users
      @receive_user = @room_users.where.not(user_id: current_user.id).first

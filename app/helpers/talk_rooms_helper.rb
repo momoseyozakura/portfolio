@@ -21,7 +21,7 @@ module TalkRoomsHelper
     entry = room.room_users.where.not(user_id: current_user)
     image = entry[0].user.image
     if image.nil?
-      image_tag "https://presite-potepancamp-rails-02.herokuapp.com/assets/default_icon-9263fc59c414b7228d256fc178dcb22183561357950a68f5ad086ba7ee054974.jpg", class: "icon-image"
+      image_tag "https://knsoza1.com/wp-content/uploads/2020/07/70b3dd52350bf605f1bb4078ef79c9b9.png", class: "icon-image"
     else
       image_tag "/user_images/#{image}", class: "icon-image"
     end

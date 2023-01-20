@@ -1,4 +1,6 @@
 class StudiosController < ApplicationController
+  before_action :authenticate_user!, except:[:index]
+  
   def index
     @studios = Studio.all.includes(studio_users: :user)
   end

@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!, except:[:show]
   protect_from_forgery
 
   def show

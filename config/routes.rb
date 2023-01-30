@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  get "/" => "home#index"
+  root to: "home#index"
   get "users/:id/show" => "users#show"
   get "users/:id/edit" => "users#edit"
   get "users/:id/entry" => "users#entry"

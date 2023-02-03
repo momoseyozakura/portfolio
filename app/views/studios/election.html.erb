@@ -16,10 +16,10 @@
       <th>月</th>
       <% @studios[0..7].each_with_index do |studio, i| %>
         <td class = "mon<%= i %>">
-          <% studio.studio_users.sort_by{|id| id}.each_with_index do |user, i| %>
+          <% studio.studio_users.sort_by{|x| -x.id.to_i}.each_with_index do |band, i| %>
             <div class = "band">
               <div class = "band-name <%= "election" if i == 0 %>">
-                <a href = <%= "/users/#{user.user.id}/show"%>><%= user.user.name %></a>
+                <a href = <%= "/users/#{band.user.id}/show"%>><%= band.user.name %></a>
               </div>
             </div>
           <% end %>
@@ -30,10 +30,10 @@
       <th>火</th>
       <% @studios[8..15].each_with_index do |studio, i| %>
         <td class = "tue<%= i %>">
-          <% studio.studio_users.sort_by{|id| id}.each_with_index do |user, i| %>
+          <% studio.studio_users.sort_by{|x| -x.id.to_i}.each_with_index do |band, i| %>
             <div class = "band">
               <div class = "band-name <%= "election" if i == 0 %>">
-                <a href = <%= "/users/#{user.user.id}/show"%>><%= user.user.name %></a>
+                <a href = <%= "/users/#{band.user.id}/show"%>><%= band.user.name %></a>
               </div>
             </div>
           <% end %>
@@ -44,10 +44,10 @@
       <th>水</th>
       <% @studios[16..23].each_with_index do |studio, i| %>
         <td class = "wed<%= i %>">
-          <% studio.studio_users.sort_by{|id| id}.each_with_index do |user, i| %>
+          <% studio.studio_users.sort_by{|x| -x.id.to_i}.each_with_index do |band, i| %>
             <div class = "band">
               <div class = "band-name <%= "election" if i == 0 %>">
-                <a href = <%= "/users/#{user.user.id}/show"%>><%= user.user.name %></a>
+                <a href = <%= "/users/#{band.user.id}/show"%>><%= band.user.name %></a>
               </div>
             </div>
           <% end %>
@@ -58,10 +58,10 @@
       <th>木</th>
       <% @studios[24..31].each_with_index do |studio, i| %>
         <td class = "thu<%= i %>">
-          <% studio.studio_users.sort_by{|id| id}.each_with_index do |user, i| %>
+          <% studio.studio_users.sort_by{|x| -x.id.to_i}.each_with_index do |band, i| %>
             <div class = "band">
               <div class = "band-name <%= "election" if i == 0 %>">
-                <a href = <%= "/users/#{user.user.id}/show"%>><%= user.user.name %></a>
+                <a href = <%= "/users/#{band.user.id}/show"%>><%= band.user.name %></a>
               </div>
             </div>
           <% end %>
@@ -72,10 +72,10 @@
       <th>金</th>
       <% @studios[32..39].each_with_index do |studio, i| %>
         <td class = "fri<%= i %>">
-          <% studio.studio_users.sort_by{|id| id}.each_with_index do |user, i| %>
+          <% studio.studio_users.sort_by{|x| -x.id.to_i}.each_with_index do |band, i| %>
             <div class = "band">
               <div class = "band-name <%= "election" if i == 0 %>">
-                <a href = <%= "/users/#{user.user.id}/show"%>><%= user.user.name %></a>
+                <a href = <%= "/users/#{band.user.id}/show"%>><%= band.user.name %></a>
               </div>
             </div>
           <% end %>

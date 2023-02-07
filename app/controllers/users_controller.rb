@@ -56,6 +56,7 @@ class UsersController < ApplicationController
           unless studios.include?(user.to_i)
             studio = StudioUser.new(studio_id: user)
             studio.user_id = @user.id
+            studio.lottely = rand(100)
             studio.save
           end
         end

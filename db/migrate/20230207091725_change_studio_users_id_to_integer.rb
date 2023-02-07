@@ -1,4 +1,4 @@
-class ChangeDatatypeIdOfStudioUsers < ActiveRecord::Migration[6.1]
+class ChangeStudioUsersIdToInteger < ActiveRecord::Migration[6.1]
   def up
     change_column :studio_users, :id, :integer, using: "id::integer"
   end

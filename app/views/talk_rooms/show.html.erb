@@ -5,7 +5,7 @@
  <div class="chats">
    <div class="chat">
      <% if @messages.present? %>
-       <% @messages.each do |m| %>
+       <% @messages.sort_by{|x| -x.id}.each do |m| %>
          <div class="chat-box">
            <div class="chat-text">
             <div class = "chat-name-bar">

@@ -4,6 +4,14 @@ RSpec.describe 'Studio', type: :system do
   let!(:studio_user) { create(:studio_user, lottely: 100 ) }
   let(:admin_user) { create(:user, admin: true) }
 
+  describe "確認" do
+    it "応募済みユーザー名をクリック時、そのユーザーのプロフィール画面に遷移すること" do
+      sign_in user
+      visit studios_path
+      click_on another_user.name
+      expect(current_path).to eq "/users/#{another_user.id}/show"
+    end
+  end
   describe "応募" do
     before do
       sign_in user

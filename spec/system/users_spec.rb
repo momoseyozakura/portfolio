@@ -219,9 +219,11 @@ RSpec.describe 'Users', type: :system do
       end
       describe "応募画面" do
         context "openがfalseなuser" do
-          it "次回抽選までお待ちくださいと表示されること" do
+          it "応募フォームが表示されること" do
             visit "/users/#{user.id}/entry"
-            expect(page).to have_content '次回抽選までお待ちください'
+            within(".profile-form") do
+              expect(page).to have_content 'スタジオ抽選'
+            end
           end
         end
 
@@ -229,9 +231,7 @@ RSpec.describe 'Users', type: :system do
           it "次回抽選までお待ちくださいと表示されること" do
             sign_in another_user
             visit "/users/#{another_user.id}/entry"
-            within(".profile-form") do
-              expect(page).to have_content 'スタジオ抽選'
-            end
+            expect(page).to have_content '次回抽選までお待ちください'
           end
         end
       end

@@ -14,8 +14,8 @@ RSpec.describe 'Studio', type: :system do
   end
   describe "応募" do
     before do
-      sign_in another_user
-      visit "/users/#{another_user.id}/entry"
+      sign_in user
+      visit "/users/#{user.id}/entry"
     end
 
     it "応募した時間が応募状況に反映されること" do
@@ -23,7 +23,7 @@ RSpec.describe 'Studio', type: :system do
       click_on '応募する'
       visit studios_path
       within(".fri7") do
-        expect(page).to have_content another_user.name
+        expect(page).to have_content user.name
       end
     end
 
@@ -32,7 +32,7 @@ RSpec.describe 'Studio', type: :system do
       click_on '応募する'
       visit studios_election_path
       within(".fri7") do
-        expect(page).to have_content another_user.name
+        expect(page).to have_content user.name
       end
     end
   end

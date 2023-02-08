@@ -1,6 +1,6 @@
 RSpec.describe 'Users', type: :system do
   let(:user) { create(:user) }
-  let(:another_user) {create(:user)}
+  let(:another_user) { create(:user, open: true) }
 
   def upload_user_avatar(user)
     sign_in user
@@ -214,6 +214,24 @@ RSpec.describe 'Users', type: :system do
             click_on '更新'
             visit "/users/#{user.id}/show"
             expect(page).to have_content 'test'
+          end
+        end
+      end
+      describe "応募画面" do
+        context "openがfalseなuser" do
+          it "次回抽選までお待ちくださいと表示されること" do
+            visit "/users/#{user.id}/entry"
+            expect(page).to have_content '次回抽選までお待ちください'
+          end
+        end
+
+        context "openがtrueなuser" do
+          it "次回抽選までお待ちくださいと表示されること" do
+            sign_in another_user
+            visit "/users/#{another_user.id}/entry"
+            within(".profile-form") do
+              expect(page).to have_content 'スタジオ抽選'
+            end
           end
         end
       end

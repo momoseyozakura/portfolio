@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_12_27_153950) do
+ActiveRecord::Schema.define(version: 2023_02_07_091725) do
 
   create_table "messages", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -31,11 +31,12 @@ ActiveRecord::Schema.define(version: 2022_12_27_153950) do
     t.index ["user_id"], name: "index_room_users_on_user_id"
   end
 
-  create_table "studio_users", id: :string, force: :cascade do |t|
+  create_table "studio_users", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "studio_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "lottely"
     t.index ["studio_id"], name: "index_studio_users_on_studio_id"
     t.index ["user_id"], name: "index_studio_users_on_user_id"
   end

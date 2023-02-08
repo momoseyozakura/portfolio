@@ -4,5 +4,9 @@ FactoryBot.define do
     email { Faker::Internet.email }
     member { Faker::Lorem.characters(number:20) }
     password { Faker::Lorem.characters(number:6) }
+
+    after(:create) do |user|
+      create_list(:studio_user, 1, user: user, studio_id: 1  )
+    end
   end
 end

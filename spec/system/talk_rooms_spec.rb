@@ -5,9 +5,10 @@ RSpec.describe 'TalkRoom', type: :system do
   let!(:talk_room) { create(:talk_room, id:1 ) }
   let!(:room_user) { create(:room_user, user_id: message_user.id, talk_room_id: talk_room.id) }
   let!(:another_room_user) { create(:room_user, user_id: another_user.id, talk_room_id: talk_room.id) }
+  let!(:messages) { create_list(:message, 5, user_id: message_user.id, talk_room_id: 1) }
   let!(:message) { create(:message, user_id: message_user.id, talk_room_id: 1) }
   let!(:another_message) { create(:message, user_id: another_user.id, talk_room_id: 1) }
-
+  
   
   describe "初めてDM画面へ移行するユーザー" do
     context "プロフィール画面" do
@@ -114,6 +115,17 @@ RSpec.describe 'TalkRoom', type: :system do
             it "相手のメッセージの作成日時が表示されること" do
               within(".chat") do
                 expect(page).to have_content another_message.created_at.to_s(:datetime_jp)
+              end
+            end
+          end
+
+          context "メッセージの表示数" do
+            it "メッセージが５つ表示されること" do
+              expect(page.all(".chat-box").count).to eq 5
+            end
+            it "最新のメッセージが初めに表示されること" do
+              within(".chat0") do
+                expect(page).to have_content another_message.body
               end
             end
           end

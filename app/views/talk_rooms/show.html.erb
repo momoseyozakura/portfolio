@@ -5,9 +5,9 @@
  <div class="chats">
    <div class="chat">
      <% if @messages.present? %>
-       <% @messages.order(id: :desc).limit(5).each do |m| %>
-         <div class="chat-box">
-           <div class="chat-text">
+       <% @messages.order(id: :desc).limit(5).each_with_index do |m, i| %>
+        <div class="chat-box chat<%= i %>">
+          <div class="chat-text">
             <div class = "chat-name-bar">
               <% if m.user.image.nil? %>
                 <img class = "chat-icon-image" alt = "デフォルトアイコン" src = "https://knsoza1.com/wp-content/uploads/2020/07/70b3dd52350bf605f1bb4078ef79c9b9.png">
@@ -18,8 +18,8 @@
             <div class = "chat-name-bar"><%= m.user.name %></div>
             <div class = "chat-name-bar"><%= m.created_at.to_s(:datetime_jp) %></div><br>
             <%= m.body %>
-           </div>
-         </div>
+          </div>
+        </div>
        <% end %>
        <%else%>
          <p>メッセージはまだありません</p>

@@ -139,20 +139,20 @@ RSpec.describe 'Users', type: :system do
     end
     describe 'ログイン後ヘッダー' do
       context 'ヘッダーのユーザー表示' do
-        it 'ログインユーザー名が表示される' do
+        it 'ログインユーザー名が表示されること' do
           visit root_path
           expect(page).to have_content user.name
         end
       end
       describe 'ヘッダーのユーザーアイコン表示' do
         context 'アイコンが未登録' do
-          it 'デフォルトアイコンが表示される' do
+          it 'デフォルトアイコンが表示されること' do
             visit root_path
             expect(page).to have_selector("img[src$='https://knsoza1.com/wp-content/uploads/2020/07/70b3dd52350bf605f1bb4078ef79c9b9.png']")
           end
         end
         context 'アイコン登録済み' do
-          it '登録されたアイコンが表示される' do
+          it '登録されたアイコンが表示されること' do
             visit "/users/#{user.id}/edit"
             attach_file 'image', "#{Rails.root}/spec/fixtures/icon.jpg"
             click_on '更新'
@@ -166,7 +166,7 @@ RSpec.describe 'Users', type: :system do
         end
         describe 'アイコン画像表示' do
           context 'アイコン画像が未登録' do
-            it 'デフォルトアイコンが表示される' do
+            it 'デフォルトアイコンが表示されること' do
               within(".profile-container") do
                 expect(page).to have_selector("img[src$='https://knsoza1.com/wp-content/uploads/2020/07/70b3dd52350bf605f1bb4078ef79c9b9.png']")
               end
@@ -204,12 +204,12 @@ RSpec.describe 'Users', type: :system do
           visit "/users/#{user.id}/edit"
         end
         context 'バンド名変更' do
-          it 'バンド名の変更が適応される' do
+          it 'バンド名の変更が適応されること' do
             fill_in 'name', with: 'test'
             click_on '更新'
             expect(page).to have_content 'test'
           end
-          it 'メンバーの変更が適応される' do
+          it 'メンバーの変更が適応されること' do
             fill_in 'member', with: 'test'
             click_on '更新'
             visit "/users/#{user.id}/show"

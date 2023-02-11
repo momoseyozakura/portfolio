@@ -1,3 +1,5 @@
 FactoryBot.define do
-  factory :talk_room 
+  factory :talk_room  do
+    
+  end
 end

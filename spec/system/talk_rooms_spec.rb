@@ -155,6 +155,13 @@ RSpec.describe 'TalkRoom', type: :system do
           expect(page).not_to have_content message.body
         end
       end
+
+      context "talkroomをクリック" do
+        it "talk_roomをクリック時talkroomに遷移すること" do
+          click_on another_user.name
+          expect(current_path).to eq "/talk_rooms/#{talk_room.id}"
+        end
+      end
     end
   end
 end

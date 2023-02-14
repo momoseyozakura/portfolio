@@ -54,6 +54,48 @@ RSpec.describe 'Application', type: :system do
             expect(page).not_to have_content "抽選結果"
           end
         end
+
+        it "プロフィールクリック時、プロフィール画面に遷移すること" do
+          within(".header-left") do
+            click_on 'プロフィール'
+            expect(current_path).to eq "/users/#{user.id}/show"
+          end
+        end
+
+        it "プロフィール編集クリック時、プロフィール編集画面に遷移すること" do
+          within(".header-left") do
+            click_on 'プロフィール編集'
+            expect(current_path).to eq "/users/#{user.id}/edit"
+          end
+        end
+
+        it "スタジオ抽選クリック時、スタジオ抽選画面に遷移すること" do
+          within(".header-left") do
+            click_on 'スタジオ抽選'
+            expect(current_path).to eq "/users/#{user.id}/entry"
+          end
+        end
+
+        it "応募状況クリック時、応募状況画面に遷移すること" do
+          within(".header-left") do
+            click_on '応募状況'
+            expect(current_path).to eq "/studios"
+          end
+        end
+
+        it "DMクリック時、DM画面に遷移すること" do
+          within(".header-left") do
+            click_on 'DM'
+            expect(current_path).to eq "/talk_rooms"
+          end
+        end
+
+        it "ログアウトクリック時、ログアウトに成功すること" do
+          within(".header-left") do
+            click_on 'ログアウト'
+          end
+          expect(page).to have_content "ログイン"
+        end
       end
 
       context "抽選結果公開後" do
@@ -77,6 +119,13 @@ RSpec.describe 'Application', type: :system do
         it "抽選結果が表示されること" do
           within(".header-left") do
             expect(page).to have_content "抽選結果"
+          end
+        end
+
+        it "抽選結果クリック時、抽選結果画面に遷移すること" do
+          within(".header-left") do
+            click_on '抽選結果'
+            expect(current_path).to eq "/studios/election"
           end
         end
       end
@@ -106,6 +155,60 @@ RSpec.describe 'Application', type: :system do
             expect(find('.nav', visible: false).text(:all)).not_to include "抽選結果"
           end
         end
+
+        it "プロフィールクリック時、プロフィール画面に遷移すること" do
+          browser_size 
+          within(".header-right") do
+            find('.nav_toggle').click
+            click_on 'プロフィール'
+            expect(current_path).to eq "/users/#{user.id}/show"
+          end
+        end
+
+        it "プロフィール編集クリック時、プロフィール編集画面に遷移すること" do
+          browser_size 
+          within(".header-right") do
+            find('.nav_toggle').click
+            click_on 'プロフィール編集'
+            expect(current_path).to eq "/users/#{user.id}/edit"
+          end
+        end
+
+        it "スタジオ抽選クリック時、スタジオ抽選画面に遷移すること" do
+          browser_size 
+          within(".header-right") do
+            find('.nav_toggle').click
+            click_on 'スタジオ抽選'
+            expect(current_path).to eq "/users/#{user.id}/entry"
+          end
+        end
+
+        it "応募状況クリック時、応募状況画面に遷移すること" do
+          browser_size 
+          within(".header-right") do
+            find('.nav_toggle').click
+            click_on '応募状況'
+            expect(current_path).to eq "/studios"
+          end
+        end
+
+        it "DMクリック時、DM画面に遷移すること" do
+          browser_size 
+          within(".header-right") do
+            find('.nav_toggle').click
+            click_on 'DM'
+            expect(current_path).to eq "/talk_rooms"
+          end
+        end
+
+        it "ログアウトクリック時、ログアウトに成功すること" do
+          browser_size 
+          within(".header-right") do
+            find('.nav_toggle').click
+            click_on 'ログアウト'
+          end
+          expect(page).to have_content "ログイン"
+        end
       end
 
       context "抽選結果公開後" do
@@ -129,6 +232,15 @@ RSpec.describe 'Application', type: :system do
         it "抽選結果が表示されること" do
           within(".header-right") do
             expect(find('.nav', visible: false).text(:all)).to include "抽選結果"
+          end
+        end
+
+        it "抽選結果クリック時、抽選結果画面に遷移すること" do
+          browser_size 
+          within(".header-right") do
+            find('.nav_toggle').click
+            click_on '抽選結果'
+            expect(current_path).to eq "/studios/election"
           end
         end
       end

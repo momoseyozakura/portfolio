@@ -38,7 +38,7 @@
               <% end %>
               <li class = "nav_menu_li"><a href = "/talk_rooms">DM</a></li>
               <% if current_user.admin == true or current_user.open == true %>
-                <li class = "nav_menu_li"><a href = <%= "/studios/election"%> >抽選結果</a></li>
+                <li class = "nav_menu_li election-menu"><a href = <%= "/studios/election"%> >抽選結果</a></li>
               <% end %>
               <li class = "nav_menu_li"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
             </ul>

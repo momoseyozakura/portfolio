@@ -21,7 +21,8 @@ module TalkRoomsHelper
     entry = room.room_users.where.not(user_id: current_user)
     image = entry[0].user.image
     if image.nil?
-      image_tag "https://knsoza1.com/wp-content/uploads/2020/07/70b3dd52350bf605f1bb4078ef79c9b9.png", class: "icon-image"
+      image_tag "https://knsoza1.com/wp-content/uploads/2020/07/70b3dd52350bf605f1bb4078ef79c9b9.png",
+class: "icon-image"
     else
       image_tag "/user_images/#{image}", class: "icon-image"
     end

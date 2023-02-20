@@ -32,10 +32,10 @@ class UsersController < ApplicationController
     if params[:image]
       @user.image = "#{@user.id}.jpg"
       image = params[:image]
-      File.binwrite("public/user_images/#{@user.image}",image.read)
+      File.binwrite("public/user_images/#{@user.image}", image.read)
     end
     @user.member = params[:member]
-    
+
     if @user.save
       redirect_to("/")
     else
@@ -51,7 +51,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     if @user.update(user_params)
       if user_params[:studio_ids].present?
-        user_params[:studio_ids].each do | user |
+        user_params[:studio_ids].each do |user|
           studios = @user.studios.pluck(:studio_id)
           unless studios.include?(user.to_i)
             studio = StudioUser.new(studio_id: user)
@@ -68,6 +68,7 @@ class UsersController < ApplicationController
   end
 
   private
+
   def user_params
     params.fetch(:user, {}).permit(studio_ids: [])
   end

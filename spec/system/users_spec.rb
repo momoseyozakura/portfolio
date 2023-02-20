@@ -24,44 +24,44 @@ RSpec.describe 'Users', type: :system do
           expect(current_path).to eq root_path
         end
       end
-      context 'バンド名が未入力'  do
+      context 'バンド名が未入力' do
         it 'ユーザーの新規作成が失敗すること' do
           fill_in 'バンド名', with: ''
           fill_in 'メンバー', with: 'member'
           fill_in 'メールアドレス', with: 'user_1@example.com'
           fill_in 'パスワード', with: 'password'
           click_button '新規登録'
-          expect(page).to have_content  "バンド名を入力してください"
+          expect(page).to have_content "バンド名を入力してください"
         end
       end
-      context 'メンバーが未入力'  do
+      context 'メンバーが未入力' do
         it 'ユーザーの新規作成が失敗すること' do
           fill_in 'バンド名', with: 'user'
           fill_in 'メンバー', with: ''
           fill_in 'メールアドレス', with: 'user_1@example.com'
           fill_in 'パスワード', with: 'password'
           click_button '新規登録'
-          expect(page).to have_content  "メンバーを入力してください"
+          expect(page).to have_content "メンバーを入力してください"
         end
       end
-      context 'メールアドレスが未入力'  do
+      context 'メールアドレスが未入力' do
         it 'ユーザーの新規作成が失敗すること' do
           fill_in 'バンド名', with: 'user'
           fill_in 'メンバー', with: 'member'
           fill_in 'メールアドレス', with: ''
           fill_in 'パスワード', with: 'password'
           click_button '新規登録'
-          expect(page).to have_content  "メールアドレスを入力してください"
+          expect(page).to have_content "メールアドレスを入力してください"
         end
       end
-      context 'パスワードが未入力'  do
+      context 'パスワードが未入力' do
         it 'ユーザーの新規作成が失敗すること' do
           fill_in 'バンド名', with: 'user'
           fill_in 'メンバー', with: 'member'
           fill_in 'メールアドレス', with: 'user_1@example.com'
           fill_in 'パスワード', with: ''
           click_button '新規登録'
-          expect(page).to have_content  "パスワードを入力してください"
+          expect(page).to have_content "パスワードを入力してください"
         end
       end
       context '登録済のメールアドレスを使用' do
@@ -71,7 +71,7 @@ RSpec.describe 'Users', type: :system do
           fill_in 'メールアドレス', with: user.email
           fill_in 'パスワード', with: 'password'
           click_button '新規登録'
-          expect(page).to have_content  'このメールアドレスは使用できません'
+          expect(page).to have_content 'このメールアドレスは使用できません'
         end
       end
       context 'ログインはこちらをクリック' do
@@ -97,7 +97,7 @@ RSpec.describe 'Users', type: :system do
             fill_in 'メールアドレス', with: ''
             fill_in 'パスワード', with: user.password
             click_button 'ログイン'
-            expect(page).to have_content  'メールアドレス もしくはパスワードが不正です。'
+            expect(page).to have_content 'メールアドレス もしくはパスワードが不正です。'
           end
         end
         context 'メールアドレスが異なる' do
@@ -105,7 +105,7 @@ RSpec.describe 'Users', type: :system do
             fill_in 'メールアドレス', with: another_user.email
             fill_in 'パスワード', with: user.password
             click_button 'ログイン'
-            expect(page).to have_content  'メールアドレス もしくはパスワードが不正です。'
+            expect(page).to have_content 'メールアドレス もしくはパスワードが不正です。'
           end
         end
         context 'パスワードが未入力' do
@@ -113,7 +113,7 @@ RSpec.describe 'Users', type: :system do
             fill_in 'メールアドレス', with: user.email
             fill_in 'パスワード', with: ''
             click_button 'ログイン'
-            expect(page).to have_content  'メールアドレス もしくはパスワードが不正です。'
+            expect(page).to have_content 'メールアドレス もしくはパスワードが不正です。'
           end
         end
         context 'パスワードが異なる' do
@@ -121,7 +121,7 @@ RSpec.describe 'Users', type: :system do
             fill_in 'メールアドレス', with: user.email
             fill_in 'パスワード', with: another_user.password
             click_button 'ログイン'
-            expect(page).to have_content  'メールアドレス もしくはパスワードが不正です。'
+            expect(page).to have_content 'メールアドレス もしくはパスワードが不正です。'
           end
         end
         context '新規登録はこちらをクリック' do

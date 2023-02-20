@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe "Users", type: :request do
-  let(:user) { create(:user) } 
-  
+  let(:user) { create(:user) }
+
   it "ログインページが取得できること" do
     get user_session_path
     expect(response).to have_http_status "200"
@@ -30,5 +30,4 @@ RSpec.describe "Users", type: :request do
     get "/users/#{user.id}/entry"
     expect(response).to have_http_status "200"
   end
-  
 end

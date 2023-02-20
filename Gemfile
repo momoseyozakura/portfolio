@@ -39,6 +39,7 @@ group :development, :test do
   gem 'faker'
   gem 'spring-commands-rspec'
   gem 'seed-fu'
+  gem 'rubocop-airbnb'
 end
 
 group :development do

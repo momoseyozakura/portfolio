@@ -1,7 +1,7 @@
 RSpec.describe 'Studio', type: :system do
   let!(:user) { create(:user) }
   let!(:another_user) { create(:user, open: true) }
-  let!(:studio_user) { create(:studio_user, lottely: 100 ) }
+  let!(:studio_user) { create(:studio_user, lottely: 100) }
   let(:admin_user) { create(:user, admin: true) }
 
   describe "確認" do
@@ -53,12 +53,12 @@ RSpec.describe 'Studio', type: :system do
       context "当選ユーザーの表示" do
         it "当選ユーザーがピンク色で表示されること" do
           within(".band0") do
-            expect(page).to have_css ('.election')
+            expect(page).to have_css('.election')
           end
         end
         it "非当選ユーザーがピンク色で表示されないこと" do
           within(".band1") do
-            expect(page).not_to have_css ('.election')
+            expect(page).not_to have_css('.election')
           end
         end
       end

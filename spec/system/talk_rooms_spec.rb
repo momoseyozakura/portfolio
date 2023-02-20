@@ -2,14 +2,15 @@ RSpec.describe 'TalkRoom', type: :system do
   let(:no_message_user) { create(:user) }
   let(:message_user) { create(:user) }
   let!(:another_user) { create(:user) }
-  let!(:talk_room) { create(:talk_room, id:1 ) }
+  let!(:talk_room) { create(:talk_room, id: 1) }
   let!(:room_user) { create(:room_user, user_id: message_user.id, talk_room_id: talk_room.id) }
-  let!(:another_room_user) { create(:room_user, user_id: another_user.id, talk_room_id: talk_room.id) }
+  let!(:another_room_user) do
+    create(:room_user, user_id: another_user.id, talk_room_id: talk_room.id)
+  end
   let!(:messages) { create_list(:message, 5, user_id: message_user.id, talk_room_id: 1) }
   let!(:message) { create(:message, user_id: message_user.id, talk_room_id: 1) }
   let!(:another_message) { create(:message, user_id: another_user.id, talk_room_id: 1) }
-  
-  
+
   describe "初めてDM画面へ移行するユーザー" do
     context "プロフィール画面" do
       before do
@@ -70,7 +71,7 @@ RSpec.describe 'TalkRoom', type: :system do
           context "自分のメッセージの表示" do
             it "アイコンが表示されること" do
               within(".chat") do
-                expect(page).to have_css ('.chat-icon-image')
+                expect(page).to have_css('.chat-icon-image')
               end
             end
 
@@ -96,7 +97,7 @@ RSpec.describe 'TalkRoom', type: :system do
           context "相手のメッセージの表示" do
             it "アイコンが表示されること" do
               within(".chat") do
-                expect(page).to have_css ('.chat-icon-image')
+                expect(page).to have_css('.chat-icon-image')
               end
             end
 
@@ -142,7 +143,7 @@ RSpec.describe 'TalkRoom', type: :system do
         it "talk_roomの相手ユーザーが表示されること" do
           expect(page).to have_content another_user.name
         end
-        
+
         it "最も新しいメッセージが表示されること" do
           expect(page).to have_content another_message.body
         end

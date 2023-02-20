@@ -21,9 +21,9 @@ RSpec.describe 'Application', type: :system do
     context 'ロゴをクリック' do
       it 'トップページに遷移すること' do
         visit studios_path
-          within(".header-container") do
-            click_on 'studio schedule'
-          end
+        within(".header-container") do
+          click_on 'studio schedule'
+        end
         expect(current_path).to eq root_path
       end
     end
@@ -39,7 +39,7 @@ RSpec.describe 'Application', type: :system do
 
         it "スタジオ抽選が表示されること" do
           within(".header-left") do
-          expect(page).to have_content "スタジオ抽選"
+            expect(page).to have_content "スタジオ抽選"
           end
         end
 
@@ -157,7 +157,7 @@ RSpec.describe 'Application', type: :system do
         end
 
         it "プロフィールクリック時、プロフィール画面に遷移すること" do
-          browser_size 
+          browser_size
           within(".header-right") do
             find('.nav_toggle').click
             click_on 'プロフィール'
@@ -166,7 +166,7 @@ RSpec.describe 'Application', type: :system do
         end
 
         it "プロフィール編集クリック時、プロフィール編集画面に遷移すること" do
-          browser_size 
+          browser_size
           within(".header-right") do
             find('.nav_toggle').click
             click_on 'プロフィール編集'
@@ -175,7 +175,7 @@ RSpec.describe 'Application', type: :system do
         end
 
         it "スタジオ抽選クリック時、スタジオ抽選画面に遷移すること" do
-          browser_size 
+          browser_size
           within(".header-right") do
             find('.nav_toggle').click
             click_on 'スタジオ抽選'
@@ -184,7 +184,7 @@ RSpec.describe 'Application', type: :system do
         end
 
         it "応募状況クリック時、応募状況画面に遷移すること" do
-          browser_size 
+          browser_size
           within(".header-right") do
             find('.nav_toggle').click
             click_on '応募状況'
@@ -193,7 +193,7 @@ RSpec.describe 'Application', type: :system do
         end
 
         it "DMクリック時、DM画面に遷移すること" do
-          browser_size 
+          browser_size
           within(".header-right") do
             find('.nav_toggle').click
             click_on 'DM'
@@ -202,7 +202,7 @@ RSpec.describe 'Application', type: :system do
         end
 
         it "ログアウトクリック時、ログアウトに成功すること" do
-          browser_size 
+          browser_size
           within(".header-right") do
             find('.nav_toggle').click
             click_on 'ログアウト'
@@ -236,7 +236,7 @@ RSpec.describe 'Application', type: :system do
         end
 
         it "抽選結果クリック時、抽選結果画面に遷移すること" do
-          browser_size 
+          browser_size
           within(".header-right") do
             find('.nav_toggle').click
             click_on '抽選結果'

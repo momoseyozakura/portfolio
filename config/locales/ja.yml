@@ -1,0 +1,15 @@
+ja:
+  activerecord:
+    attributes:
+      user:
+        name: バンド名
+        member: メンバー
+        email: メールアドレス
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              format: '%{message}'
+              blank: '%{attribute}を入力してください'
+              taken: この%{attribute}は使用できません

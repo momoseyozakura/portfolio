@@ -1,0 +1,20 @@
+<div class = "profile-form">
+  <% if @user.open == true %>
+    <p>次回抽選までお待ちください</p>
+  <% else %>
+    <div class = "update-content">
+      <h2>スタジオ抽選</h2>
+    </div>
+    <div class = "update-content">
+      <p>日時<p>
+      <%= form_with(model: @user, url:"/users/#{@user.id}/add", local: true) do |form| %>
+        <%= form.collection_check_boxes(:studio_ids, Studio.all, :id, :name, include_hidden: false) do |studio| %>
+          <div>
+            <%= studio.label { studio.check_box + studio.text } %>
+          </div>
+        <% end %>
+        <%= form.submit("応募する") %>
+      <% end %>
+    </div>
+  <% end %>
+</div>

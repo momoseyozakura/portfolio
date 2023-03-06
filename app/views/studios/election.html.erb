@@ -1,0 +1,94 @@
+<div class = "container">
+  <div class = "notice"><%= flash[:notice] %></div>
+  <table>
+    <tr>
+      <th></th>
+      <th>9:20-11:00</th>
+      <th>11:10-12:50</th>
+      <th>昼休憩</th>
+      <th>13:40-15:20</th>
+      <th>15:30-17:10</th>
+      <th>17:20-19:00</th>
+      <th>19:00-20:00</th>
+      <th>20:00-21:00</th>
+    </tr>
+    <tr>
+      <th>月</th>
+      <% @studios[0..7].each_with_index do |studio, i| %>
+        <td class = "mon<%= i %>">
+          <% studio.studio_users.sort_by{|x| -x.lottely}.each_with_index do |band, i| %>
+            <div class = "band band<%= i %>">
+              <div class = "band-name <%= "election" if i == 0 %>">
+                <a href = <%= "/users/#{band.user.id}/show"%>><%= band.user.name %></a>
+              </div>
+            </div>
+          <% end %>
+        </td>
+      <% end %>
+    </tr>
+    <tr>
+      <th>火</th>
+      <% @studios[8..15].each_with_index do |studio, i| %>
+        <td class = "tue<%= i %>">
+          <% studio.studio_users.sort_by{|x| -x.lottely}.each_with_index do |band, i| %>
+            <div class = "band">
+              <div class = "band-name <%= "election" if i == 0 %>">
+                <a href = <%= "/users/#{band.user.id}/show"%>><%= band.user.name %></a>
+              </div>
+            </div>
+          <% end %>
+        </td>
+      <% end %>
+    </tr>
+    <tr>
+      <th>水</th>
+      <% @studios[16..23].each_with_index do |studio, i| %>
+        <td class = "wed<%= i %>">
+          <% studio.studio_users.sort_by{|x| -x.lottery}.each_with_index do |band, i| %>
+            <div class = "band">
+              <div class = "band-name <%= "election" if i == 0 %>">
+                <a href = <%= "/users/#{band.user.id}/show"%>><%= band.user.name %></a>
+              </div>
+            </div>
+          <% end %>
+        </td>
+      <% end %>
+    </tr>
+    <tr>
+      <th>木</th>
+      <% @studios[24..31].each_with_index do |studio, i| %>
+        <td class = "thu<%= i %>">
+          <% studio.studio_users.sort_by{|x| -x.lottely}.each_with_index do |band, i| %>
+            <div class = "band">
+              <div class = "band-name <%= "election" if i == 0 %>">
+                <a href = <%= "/users/#{band.user.id}/show"%>><%= band.user.name %></a>
+              </div>
+            </div>
+          <% end %>
+        </td>
+      <% end %>
+    </tr>
+    <tr>
+      <th>金</th>
+      <% @studios[32..39].each_with_index do |studio, i| %>
+        <td class = "fri<%= i %>">
+          <% studio.studio_users.sort_by{|x| -x.lottely}.each_with_index do |band, i| %>
+            <div class = "band">
+              <div class = "band-name <%= "election" if i == 0 %>">
+                <a href = <%= "/users/#{band.user.id}/show"%>><%= band.user.name %></a>
+              </div>
+            </div>
+          <% end %>
+        </td>
+      <% end %>
+    </tr>
+  </table>
+
+  <% if current_user.admin == true %>
+    <div class = btn-container>
+      <%= link_to "公開", studios_open_path, class: "lottery-btn" %>
+      <%= link_to "非公開", studios_close_path, class: "lottery-btn close" %>
+      <%= link_to "リセット", studios_destroy_path, class: "reset-btn", data: {confirm:"リセットしますか？"} %>
+    </div>
+  <% end %>
+</div>

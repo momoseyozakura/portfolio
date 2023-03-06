@@ -1,0 +1,84 @@
+<table>
+  <tr>
+    <th></th>
+    <th>9:20-11:00</th>
+    <th>11:10-12:50</th>
+    <th>昼休憩</th>
+    <th>13:40-15:20</th>
+    <th>15:30-17:10</th>
+    <th>17:20-19:00</th>
+    <th>19:00-20:00</th>
+    <th>20:00-21:00</th>
+  </tr>
+  <tr>
+    <th>月</th>
+    <% @studios[0..7].each_with_index do |studio, i| %>
+      <td class = "mon<%= i %>">
+        <% studio.studio_users.each do |user| %>
+          <div class = "band">
+            <div class = "band-name">
+              <a href = <%= "/users/#{user.user.id}/show"%> ><%= user.user.name %></a>
+            </div>
+          </div>
+        <% end %>
+      </td>
+    <% end %>
+  </tr>
+  <tr>
+    <th>火</th>
+    <% @studios[8..15].each_with_index do |studio, i| %>
+      <td class = "tue<%= i %>">
+        <% studio.studio_users.each do |user| %>
+          <div class = "band">
+            <div class = "band-name">
+              <a href = <%= "/users/#{user.user.id}/show"%> ><%= user.user.name %></a>
+            </div>
+          </div>
+        <% end %>
+      </td>
+    <% end %>
+  </tr>
+  <tr>
+    <th>水</th>
+    <% @studios[16..23].each_with_index do |studio, i| %>
+      <td class = "wed<%= i %>">
+        <% studio.studio_users.each do |user| %>
+          <div class = "band">
+            <div class = "band-name">
+              <a href = <%= "/users/#{user.user.id}/show"%> ><%= user.user.name %></a>
+            </div>
+          </div>
+        <% end %>
+      </td>
+    <% end %>
+  </tr>
+  <tr>
+    <th>木</th>
+    <% @studios[24..31].each_with_index do |studio, i| %>
+      <td class = "thu<%= i %>">
+        <% studio.studio_users.each do |user| %>
+          <div class = "band">
+            <div class = "band-name">
+              <a href = <%= "/users/#{user.user.id}/show"%> ><%= user.user.name %></a>
+            </div>
+          </div>
+        <% end %>
+      </td>
+    <% end %>
+  </tr>
+  <tr>
+    <th>金</th>
+    <% @studios[32..39].each_with_index do |studio, i| %>
+      <td class = "fri<%= i %>">
+        <% studio.studio_users.each do |user| %>
+          <div class = "band">
+            <div class = "band-name">
+              <a href = <%= "/users/#{user.user.id}/show"%> ><%= user.user.name %></a>
+            </div>
+          </div>
+        <% end %>
+      </td>
+    <% end %>
+  </tr>
+</table>
+

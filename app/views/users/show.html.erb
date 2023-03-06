@@ -1,0 +1,41 @@
+<div class = "profile-container" >
+  <div class = "profile-form">
+    <div class = "update-content">
+      <h2>プロフィール</h2>
+    </div>
+
+      <div class = "update-content">
+        <p>アイコン画像<p>
+        <% if @user.image.nil? %>
+          <img class = "profile-image" alt = "デフォルトアイコン" src = "https://knsoza1.com/wp-content/uploads/2020/07/70b3dd52350bf605f1bb4078ef79c9b9.png">
+        <% else %>
+          <img class = "profile-image" alt = "アイコン" src = "<%= "/user_images/#{@user.image}" %>">
+        <% end %>
+      </div>
+
+      <div class = "update-content">
+        <p>バンド名</p>
+        <%= @user.name %>
+      </div>
+
+      <div class = "update-content end">
+        <p>メンバー</p>
+        <%= @user.member %>
+      </div>
+
+      <div class = "update-content">
+        <% unless @user.id == current_user.id %>
+          <% if @have_room == true %>
+            <div class = dm-btn><%= link_to 'DMへ', talk_room_path(@room_id)%></div>
+          <% else %>
+            <%= form_with model: @room, local: true do |f| %>
+              <%= fields_for @room_user do |r| %>
+                <%= r.hidden_field :user_id, value: @user.id %>
+              <% end %>
+              <%= f.submit "メッセージを送る", class: "btn" %>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
+  </div>
+</div>

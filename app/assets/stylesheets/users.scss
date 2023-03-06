@@ -1,0 +1,90 @@
+.profile-container{
+  height:650px;
+}
+
+.profile-form{
+  max-width: 600px;
+  border:solid 1px lightgrey;
+  text-align: center;
+  padding:20px 0;
+  margin:70px auto;
+}
+
+.update-content{
+  border-bottom:solid 1px lightgrey ;
+  margin:0 20px;
+  text-align: left;
+}
+
+.update-content h2{
+  font-weight: normal;
+  display:flex;
+}
+
+.update-content p{
+  display:flex;
+}
+
+.update-input{
+  width:90%;
+  height:30px;
+  margin:10px 0;
+  border:solid 1px gray;
+  display:flex;
+}
+
+.update-content textarea{
+  display:flex;
+  width:90%;
+  height:90px;
+  margin:10px 0;
+}
+
+.update-btn{
+  text-decoration: none;
+  background-color:dodgerblue;
+  border: none;
+  color:white;
+  padding:10px 0;
+  border-radius: 5px;
+  margin:20px 0;
+  width:90%;
+}
+
+.profile-image{
+  height:100px;
+  width:100px;
+  border-radius:50%;
+  margin-right: 10px;
+}
+
+.end{
+  padding-bottom:20px;
+}
+
+.update-content p{
+  color:gray;
+}
+
+.input-area{
+  width:75%;
+  height:60px;
+  margin:10px;
+  border:solid 1px lightgrey;
+}
+
+.dm-btn{
+  height: 50px;
+  position: relative;
+}
+
+.dm-btn a{
+  background-color: dodgerblue;
+  text-decoration: none;
+  color: white;
+  padding: 10px 100px;
+  border-radius: 5px;
+  position: absolute;
+  top: 5%;
+
+}

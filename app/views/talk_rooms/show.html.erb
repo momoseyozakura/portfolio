@@ -1,0 +1,37 @@
+<div class="chat-room">
+ <h1><%=@receive_user.user.name%>とのメッセージ</h1>
+  
+ <hr>
+ <div class="chats">
+   <div class="chat">
+     <% if @messages.present? %>
+       <% @messages.order(id: :desc).limit(5).each_with_index do |m, i| %>
+        <div class="chat-box chat<%= i %>">
+          <div class="chat-text">
+            <div class = "chat-name-bar">
+              <% if m.user.image.nil? %>
+                <img class = "chat-icon-image" alt = "デフォルトアイコン" src = "https://knsoza1.com/wp-content/uploads/2020/07/70b3dd52350bf605f1bb4078ef79c9b9.png">
+              <% else %>
+                <img class = "chat-icon-image" alt = "アイコン" src = "<%= "/user_images/#{m.user.image}" %>">
+              <% end %>
+            </div>
+            <div class = "chat-name-bar"><%= m.user.name %></div>
+            <div class = "chat-name-bar"><%= m.created_at.to_s(:datetime_jp) %></div><br>
+            <%= m.body %>
+          </div>
+        </div>
+       <% end %>
+       <%else%>
+         <p>メッセージはまだありません</p>
+     <% end %>
+   </div>
+   
+   <div class="posts">
+     <%= form_with model: @message, local: true do |f| %>
+       <%= f.text_field :body, class: "send-form", placeholder: "メッセージを入力してください" %>
+       <%= f.hidden_field :talk_room_id, value: @room.id %>
+       <%= f.submit "送信する", class: "send-btn" %>
+     <% end %>
+   </div>
+ </div>
+</div>

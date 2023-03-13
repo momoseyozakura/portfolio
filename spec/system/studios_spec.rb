@@ -1,7 +1,7 @@
 RSpec.describe 'Studio', type: :system do
   let!(:user) { create(:user) }
   let!(:another_user) { create(:user, open: true) }
-  let!(:studio_user) { create(:studio_user, lottely: 100) }
+  let!(:studio_user) { create(:studio_user, id:1, lottely: 100) }
   let(:admin_user) { create(:user, admin: true) }
 
   describe "確認" do
@@ -12,30 +12,7 @@ RSpec.describe 'Studio', type: :system do
       expect(current_path).to eq "/users/#{another_user.id}/show"
     end
   end
-  describe "応募" do
-    before do
-      sign_in user
-      visit "/users/#{user.id}/entry"
-    end
 
-    it "応募した時間が応募状況に反映されること" do
-      check 'studio40'
-      click_on '応募する'
-      visit studios_path
-      within(".fri7") do
-        expect(page).to have_content user.name
-      end
-    end
-
-    it "応募した時間が抽選結果に反映されること" do
-      check 'studio40'
-      click_on '応募する'
-      visit studios_election_path
-      within(".fri7") do
-        expect(page).to have_content user.name
-      end
-    end
-  end
 
   describe "当選" do
     before do

@@ -11,16 +11,9 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema.define(version: 2023_02_07_091725) do
-
-<<<<<<< HEAD
   create_table "messages", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "talk_room_id", null: false
-=======
-  create_table "messages", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "talk_room_id", null: false
->>>>>>> 58156a7a2e6a38c716b8016a3791ae9e1ff4a261
     t.text "body"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

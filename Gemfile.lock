@@ -135,7 +135,6 @@ GEM
     mini_mime (1.1.2)
     minitest (5.16.3)
     msgpack (1.6.0)
-    mysql2 (0.5.5)
     nio4r (2.5.8)
     nokogiri (1.13.8-arm64-darwin)
       racc (~> 1.4)
@@ -319,11 +318,7 @@ DEPENDENCIES
   jbuilder (~> 2.7)
   listen (~> 3.3)
   mini_magick
-<<<<<<< HEAD
   mysql2 (~> 0.5)
-=======
-  mysql2
->>>>>>> 58156a7a2e6a38c716b8016a3791ae9e1ff4a261
   puma (~> 5.0)
   rack-mini-profiler (~> 2.0)
   rails (~> 6.1.7)

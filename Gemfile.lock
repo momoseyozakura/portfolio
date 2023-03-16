@@ -319,11 +319,7 @@ DEPENDENCIES
   jbuilder (~> 2.7)
   listen (~> 3.3)
   mini_magick
-<<<<<<< HEAD
   mysql2 (~> 0.5)
-=======
-  mysql2
->>>>>>> 58156a7a2e6a38c716b8016a3791ae9e1ff4a261
   puma (~> 5.0)
   rack-mini-profiler (~> 2.0)
   rails (~> 6.1.7)

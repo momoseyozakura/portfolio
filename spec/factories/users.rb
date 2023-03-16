@@ -6,7 +6,7 @@ FactoryBot.define do
     password { Faker::Lorem.characters(number: 6) }
 
     after(:create) do |user|
-      create_list(:studio_user, 1, user: user, studio_id: 1)
+      create_list(:studio_user, 1,id:Faker::Number.between(from: 1) , user: user, studio_id: 1)
     end
   end
 end

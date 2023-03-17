@@ -51,4 +51,4 @@ production:
   <<: *default
   database: portfolio_production
   username: root
-  password: Momose4751
+  password: .ifHVg/cA3rp

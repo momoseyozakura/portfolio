@@ -10,10 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_02_07_091725) do
-  create_table "messages", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "talk_room_id", null: false
+ActiveRecord::Schema.define(version: 2023_03_17_161922) do
+
+  create_table "messages", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "talk_room_id", null: false
     t.text "body"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -21,18 +22,18 @@ ActiveRecord::Schema.define(version: 2023_02_07_091725) do
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
-  create_table "room_users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "talk_room_id", null: false
+  create_table "room_users", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "talk_room_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["talk_room_id"], name: "index_room_users_on_talk_room_id"
     t.index ["user_id"], name: "index_room_users_on_user_id"
   end
 
-  create_table "studio_users", id: :integer, default: nil, charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "studio_id", null: false
+  create_table "studio_users", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "studio_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "lottely"
@@ -40,18 +41,18 @@ ActiveRecord::Schema.define(version: 2023_02_07_091725) do
     t.index ["user_id"], name: "index_studio_users_on_user_id"
   end
 
-  create_table "studios", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "studios", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "name"
   end
 
-  create_table "talk_rooms", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "talk_rooms", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -63,7 +64,7 @@ ActiveRecord::Schema.define(version: 2023_02_07_091725) do
     t.string "image"
     t.text "member"
     t.boolean "admin", default: false
-    t.boolean "open", default: false
+    t.boolean "open", default: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

@@ -79,3 +79,9 @@ td{
 .notice{
   background-color: yellow;
 }
+
+@media screen and (max-width:1080px) {
+  th{
+    width: 50px;
+  }
+}

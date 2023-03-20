@@ -6,17 +6,14 @@ table {
   width:95%;
 }
 th, td {
+  white-space: pre;
   writing-mode: horizontal-tb;
   padding: 5px 15px;
   border: solid 1px #888;
 }
 
 th{
-  width:10%;
   word-wrap:break-word;
-}
-td{
-  width:10%;
 }
 
 .band{
@@ -80,8 +77,3 @@ td{
   background-color: yellow;
 }
 
-@media screen and (max-width:1080px) {
-  th{
-    width: 50px;
-  }
-}

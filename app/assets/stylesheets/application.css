@@ -20,6 +20,7 @@ body{
 header{
   background-color:black;
   height:65px;
+  
  }
 
  .header-left{
@@ -177,7 +178,7 @@ footer h2{
   position: fixed;
   background-color: black;
   top: 0;
-  left: 75%;
+  left: 55%;
   right: 0;
   height: 100%;
   bottom: 65px;
@@ -221,6 +222,15 @@ footer h2{
 @media screen and (max-width:1080px){
   .menu{
     display:none;
+  }
+
+  .header-container{
+    display: flex;
+  }
+
+  .header-right{
+    margin-left: auto;
+    padding-left: 0;
   }
 }
 

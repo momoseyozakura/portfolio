@@ -1,6 +1,6 @@
 RSpec.describe 'Application', type: :system do
   let(:user) { create(:user) }
-  let(:another_user) { create(:user, open: true) }
+  let(:another_user) { create(:user, open: false) }
 
   describe 'ログイン前ヘッダー' do
     before do
@@ -31,9 +31,9 @@ RSpec.describe 'Application', type: :system do
 
   describe "ログイン後ヘッダー" do
     describe "ヘッダーメニュー" do
-      context "抽選結果公開前" do
+      context "抽選結果非公開時" do
         before do
-          sign_in user
+          sign_in another_user
           visit root_path
         end
 
@@ -58,21 +58,21 @@ RSpec.describe 'Application', type: :system do
         it "プロフィールクリック時、プロフィール画面に遷移すること" do
           within(".header-left") do
             click_on 'プロフィール'
-            expect(current_path).to eq "/users/#{user.id}/show"
+            expect(current_path).to eq "/users/#{another_user.id}/show"
           end
         end
 
         it "プロフィール編集クリック時、プロフィール編集画面に遷移すること" do
           within(".header-left") do
             click_on 'プロフィール編集'
-            expect(current_path).to eq "/users/#{user.id}/edit"
+            expect(current_path).to eq "/users/#{another_user.id}/edit"
           end
         end
 
         it "スタジオ抽選クリック時、スタジオ抽選画面に遷移すること" do
           within(".header-left") do
             click_on 'スタジオ抽選'
-            expect(current_path).to eq "/users/#{user.id}/entry"
+            expect(current_path).to eq "/users/#{another_user.id}/entry"
           end
         end
 
@@ -98,9 +98,9 @@ RSpec.describe 'Application', type: :system do
         end
       end
 
-      context "抽選結果公開後" do
+      context "抽選結果公開時" do
         before do
-          sign_in another_user
+          sign_in user
           visit root_path
         end
 
@@ -132,9 +132,9 @@ RSpec.describe 'Application', type: :system do
     end
 
     describe "ハンバーガーメニュー" do
-      context "抽選結果公開前" do
+      context "抽選結果非公開時" do
         before do
-          sign_in user
+          sign_in another_user
           visit root_path
         end
 
@@ -161,7 +161,7 @@ RSpec.describe 'Application', type: :system do
           within(".header-right") do
             find('.nav_toggle').click
             click_on 'プロフィール'
-            expect(current_path).to eq "/users/#{user.id}/show"
+            expect(current_path).to eq "/users/#{another_user.id}/show"
           end
         end
 
@@ -170,7 +170,7 @@ RSpec.describe 'Application', type: :system do
           within(".header-right") do
             find('.nav_toggle').click
             click_on 'プロフィール編集'
-            expect(current_path).to eq "/users/#{user.id}/edit"
+            expect(current_path).to eq "/users/#{another_user.id}/edit"
           end
         end
 
@@ -179,7 +179,7 @@ RSpec.describe 'Application', type: :system do
           within(".header-right") do
             find('.nav_toggle').click
             click_on 'スタジオ抽選'
-            expect(current_path).to eq "/users/#{user.id}/entry"
+            expect(current_path).to eq "/users/#{another_user.id}/entry"
           end
         end
 
@@ -211,9 +211,9 @@ RSpec.describe 'Application', type: :system do
         end
       end
 
-      context "抽選結果公開後" do
+      context "抽選結果公開時" do
         before do
-          sign_in another_user
+          sign_in user
           visit root_path
         end
 

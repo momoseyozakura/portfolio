@@ -1,13 +1,14 @@
 table {
   writing-mode: vertical-lr;
+  white-space: pre;
   border-collapse: collapse;
   border: solid 1px #888;
   margin:20px;
   width:95%;
 }
 th, td {
-  white-space: pre;
   writing-mode: horizontal-tb;
+  white-space: pre;
   padding: 5px 15px;
   border: solid 1px #888;
 }

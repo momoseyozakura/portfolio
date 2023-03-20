@@ -228,6 +228,18 @@ footer h2{
     display: flex;
   }
 
+  .logo h2{
+    font-size: 20px;
+  }
+
+  .login-link{
+    padding: 5px;
+  }
+
+  .signup-link{
+    padding: 5px;
+  }
+
   .header-right{
     margin-left: auto;
     padding-left: 0;

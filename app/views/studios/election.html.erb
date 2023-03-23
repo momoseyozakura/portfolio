@@ -44,7 +44,7 @@
       <th>水</th>
       <% @studios[16..23].each_with_index do |studio, i| %>
         <td class = "wed<%= i %>">
-          <% studio.studio_users.sort_by{|x| -x.lottery}.each_with_index do |band, i| %>
+          <% studio.studio_users.sort_by{|x| -x.lottely}.each_with_index do |band, i| %>
             <div class = "band">
               <div class = "band-name <%= "election" if i == 0 %>">
                 <a href = <%= "/users/#{band.user.id}/show"%>><%= band.user.name %></a>

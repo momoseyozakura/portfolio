@@ -8,7 +8,7 @@
   ![image](https://user-images.githubusercontent.com/106065354/227141382-b3d69eac-03d9-4b80-9d4d-ea0b0d42635c.png)
 
 ## URL
-  http://67.202.20.85/
+  https://yosegani-studio-schedule.com
 
 
 ## 利用方法
